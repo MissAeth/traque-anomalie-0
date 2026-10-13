@@ -6,10 +6,10 @@ Jeu de rôle horrifique en narration partagée pour 3 à 5 joueurs, sans dé. Co
 Dans Foundry : **Systèmes de jeu › Installer un système**, puis coller cette URL dans « URL du manifeste » :
 
 ```
-https://github.com/MissAeth/traque-anomalie-0/releases/latest/download/system.json
+https://raw.githubusercontent.com/MissAeth/traque-anomalie-0/main/system.json
 ```
 
-Installation manuelle : télécharger `traque-anomalie-0.zip` depuis la dernière [release](https://github.com/MissAeth/traque-anomalie-0/releases/latest) et le décompresser dans `Data/systems/` (le dossier doit s'appeler `traque-anomalie-0`).
+Installation manuelle : télécharger [`dist/traque-anomalie-0.zip`](https://raw.githubusercontent.com/MissAeth/traque-anomalie-0/main/dist/traque-anomalie-0.zip) et le décompresser dans `Data/systems/` (le dossier doit s'appeler `traque-anomalie-0`).
 
 ## Contenu
 - **Feuille de survie** : Prénom, Objet fétiche (case « détruit »), trois coches de Souffle. Les trois noircies : le personnage devient un Spectre.
@@ -27,3 +27,8 @@ Un utilisateur Gamemaster doit être connecté : c'est lui qui tient le paquet (
 
 ## Modifier les cartes
 Tous les textes sont dans `data/cartes.json`. Types d'effets : `souffle`, `objet`, `tous`, `cible`, `allieSouffle`, `allieObjet`.
+
+## Publier une nouvelle version
+1. Augmenter `version` dans `system.json`.
+2. Reconstruire `dist/traque-anomalie-0.zip` (fichiers du système à la racine du zip, sans `dist/` ni `.git/`).
+3. Pousser sur `main` : Foundry proposera la mise à jour.

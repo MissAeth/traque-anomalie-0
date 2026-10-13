@@ -8,13 +8,19 @@
     "verified": "14"
   },
   "authors": [
-    { "name": "Albane Lobreau" }
+    {
+      "name": "Albane Lobreau"
+    }
   ],
   "url": "https://github.com/MissAeth/traque-anomalie-0",
-  "manifest": "https://github.com/MissAeth/traque-anomalie-0/releases/latest/download/system.json",
-  "download": "https://github.com/MissAeth/traque-anomalie-0/releases/download/v1.0.0/traque-anomalie-0.zip",
-  "esmodules": ["module/traque.mjs"],
-  "styles": ["styles/traque.css"],
+  "manifest": "https://raw.githubusercontent.com/MissAeth/traque-anomalie-0/main/system.json",
+  "download": "https://raw.githubusercontent.com/MissAeth/traque-anomalie-0/main/dist/traque-anomalie-0.zip",
+  "esmodules": [
+    "module/traque.mjs"
+  ],
+  "styles": [
+    "styles/traque.css"
+  ],
   "documentTypes": {
     "Actor": {
       "personnage": {}
