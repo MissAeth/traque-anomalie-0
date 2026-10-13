@@ -1,0 +1,70 @@
+<section class="traque-pioche">
+  {{#if chargement}}
+  <p class="traque-aide">Chargement des cartes…</p>
+  {{else}}
+
+  <ol class="traque-phases">
+    {{#each phases}}
+    <li class="{{statut}}">
+      <i class="{{icone}}"></i>
+      <span class="nom">{{nom}}</span>
+      <span class="sous">{{sousTitre}}</span>
+      {{#if (eq statut "faite")}}<i class="fa-solid fa-check"></i>{{else}}<span class="compte">{{restantes}}</span>{{/if}}
+    </li>
+    {{/each}}
+  </ol>
+
+  {{#if enCours}}
+    {{#if derniere}}
+    <p class="traque-derniere">Dernière carte : <strong>{{derniere.titre}}</strong> ({{derniere.acteur}})</p>
+    {{/if}}
+
+    {{#if termine}}
+      {{#if sasActif}}
+      <div class="traque-sas-actif">
+        <span><i class="fa-solid fa-hourglass-half"></i> Dernier SAS</span>
+        <span class="minuteur">{{sasTexte}}</span>
+      </div>
+      {{/if}}
+      <p class="traque-fin">Toutes les cartes ont été piochées.</p>
+      {{#if isGM}}
+      <button type="button" class="traque-piocher traque-fin-partie" data-action="finPartie">
+        <i class="fa-solid fa-flag-checkered"></i> Fin de partie
+      </button>
+      {{else}}
+      <p class="traque-aide">En attente de la fin de partie par le MJ.</p>
+      {{/if}}
+    {{else}}
+      {{#if prochain}}<p class="traque-prochain">À <strong>{{prochain}}</strong> de piocher.</p>{{/if}}
+
+      {{#if sasActif}}
+      <div class="traque-sas-actif">
+        <span><i class="fa-solid fa-hourglass-half"></i> SAS en cours</span>
+        <span class="minuteur">{{sasTexte}}</span>
+        {{#if isGM}}<button type="button" data-action="leverSas" data-tooltip="Terminer le SAS maintenant"><i class="fa-solid fa-forward"></i></button>{{/if}}
+      </div>
+      {{/if}}
+
+      {{#if acteurs.length}}
+      <select name="acteur">
+        {{#each acteurs}}<option value="{{id}}" {{#if selected}}selected{{/if}}>{{name}}{{#if spectre}} (Spectre){{/if}}</option>{{/each}}
+      </select>
+      {{else}}
+      <p class="traque-aide">Aucun personnage disponible : crée un acteur « Personnage » ou demande au MJ de te l'assigner.</p>
+      {{/if}}
+
+      <button type="button" class="traque-piocher" data-action="piocher" {{#unless peutPiocher}}disabled{{/unless}}>
+        <i class="fa-solid fa-hand"></i> Piocher ({{restantes}})
+      </button>
+    {{/if}}
+  {{else}}
+    <p class="traque-aide">{{#if terminee}}La dernière traque est terminée.{{else}}Aucune traque en cours.{{/if}}</p>
+  {{/if}}
+
+  {{#if isGM}}
+  <button type="button" class="traque-nouvelle" data-action="nouvellePartie">
+    <i class="fa-solid fa-shuffle"></i> Nouvelle partie…
+  </button>
+  {{/if}}
+  {{/if}}
+</section>

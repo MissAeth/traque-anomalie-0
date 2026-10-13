@@ -1,0 +1,143 @@
+{
+  "phases": [
+    { "id": "miseEnPlace", "nom": "Mise en place", "sousTitre": "Les amorces", "melanger": false, "icone": "fa-solid fa-gears" },
+    { "id": "acte1", "nom": "Acte I", "sousTitre": "Les signes", "melanger": true, "icone": "fa-solid fa-masks-theater" },
+    { "id": "acte2", "nom": "Acte II", "sousTitre": "L'étau", "melanger": true, "icone": "fa-solid fa-masks-theater" },
+    { "id": "acte3", "nom": "Acte III", "sousTitre": "La confrontation", "melanger": true, "icone": "fa-solid fa-masks-theater",
+      "annonce": "Les Spectres jouent désormais la version Spectre des cartes." },
+    { "id": "epilogue", "nom": "Épilogue", "sousTitre": "L'issue", "melanger": false, "icone": "fa-solid fa-door-open" }
+  ],
+
+  "typesEffets": {
+    "_aide": "souffle = celui qui pioche noircit N Souffle | objet = celui qui pioche détruit son objet fétiche | tous = chaque survivant noircit N Souffle | cible = on choisit un survivant qui noircit N Souffle | allieSouffle = celui qui pioche ET un allié choisi noircissent N Souffle | allieObjet = un allié choisi détruit son objet fétiche"
+  },
+
+  "cartes": [
+    { "numero": 1, "titre": "Le Piège", "phase": "miseEnPlace", "consigne": "Complète à voix haute :",
+      "survivant": "« Nous sommes enfermés dans [LIEU] et notre seule issue possible est [SORTIE]. »" },
+    { "numero": 2, "titre": "L'Origine", "phase": "miseEnPlace", "consigne": "Complète à voix haute :",
+      "survivant": "« Tout a basculé il y a [TEMPS], quand nous avons découvert [FAIT MACABRE]. »" },
+    { "numero": 3, "titre": "La Menace", "phase": "miseEnPlace", "consigne": "Complète à voix haute :",
+      "survivant": "« La chose qui nous traque ressemble à [DESCRIPTION], et elle chasse / tue en [MODE OPÉRATOIRE]. »" },
+    { "numero": 4, "titre": "La Fissure", "phase": "miseEnPlace", "consigne": "Complète à voix haute :",
+      "survivant": "« Entre nous, la confiance est rompue parce que personne n'ose avouer que [SECRET]. »" },
+
+    { "numero": 5, "titre": "L'Écho", "phase": "acte1",
+      "survivant": "Un craquement violent retentit derrière toi. Tu te retournes en sursaut.<br><strong>Quel son précis as-tu entendu, et quel mauvais souvenir réveille-t-il en toi ?</strong>" },
+    { "numero": 6, "titre": "La Lueur", "phase": "acte1",
+      "survivant": "Ta source de lumière vacille.<br><strong>Choix :</strong> tu détruis ton objet fétiche pour la réparer rapidement, ou tu plonges tout le monde dans le noir complet jusqu'au prochain Acte (chacun noircit 1 Souffle).",
+      "effets": { "survivant": [
+        { "type": "objet", "label": "Réparer : détruire mon objet fétiche" },
+        { "type": "tous", "valeur": 1, "label": "Le noir complet : chacun noircit 1 Souffle" }
+      ] } },
+    { "numero": 7, "titre": "La Trace", "phase": "acte1",
+      "survivant": "Une substance inconnue te barre le passage. Tu t'arrêtes net. Tu reconnais immédiatement la substance.<br><strong>Qu'est-ce que c'est, et pourquoi refusais-tu d'y croire ?</strong>" },
+    { "numero": 8, "titre": "Le Doute", "phase": "acte1",
+      "survivant": "Tu trouves un objet abandonné qui trahit ton implication dans ce qui a mené à la situation dans laquelle vous vous trouvez.<br><strong>Qu'est-ce que c'est, et pourquoi n'avoir rien dit au groupe ?</strong>" },
+    { "numero": 9, "titre": "Le Vertige", "phase": "acte1",
+      "survivant": "Une odeur toxique / pestilentielle te prend à la gorge.<br><strong>Choix :</strong> tu noircis 1 Souffle à cause de la nausée violente qui te saisit, ou tu détruis ton objet fétiche pour te fabriquer un masque de fortune.",
+      "effets": { "survivant": [
+        { "type": "souffle", "valeur": 1, "label": "Noircir 1 Souffle" },
+        { "type": "objet", "label": "Masque de fortune : détruire mon objet fétiche" }
+      ] } },
+    { "numero": 10, "titre": "Le Fracas", "phase": "acte1",
+      "survivant": "Tu entends un grand bruit non loin de toi. Tu es tétanisé.<br><strong>Qu'as-tu vu passer dans la pénombre juste devant tes yeux pendant que tu étais incapable de bouger ?</strong>" },
+
+    { "numero": 11, "titre": "Le Frôlement", "phase": "acte2",
+      "survivant": "Une masse glacée te frôle.<br><strong>Choix :</strong> tu noircis 1 Souffle sous le choc, ou tu perds ton objet fétiche en sursautant. <strong>Décris ce que tu as ressenti quand tu as été frôlé.</strong>",
+      "effets": { "survivant": [
+        { "type": "souffle", "valeur": 1, "label": "Noircir 1 Souffle" },
+        { "type": "objet", "label": "Perdre mon objet fétiche" }
+      ] } },
+    { "numero": 12, "titre": "La Morsure", "phase": "acte2",
+      "survivant": "Sans que tu comprennes d'où ça vient, tu sens une vive douleur irradier d'une partie de ton corps.<br><strong>Choix :</strong> tu noircis 2 Souffles, ou un allié volontaire détruit son objet fétiche pour te faire un bandage.",
+      "effets": { "survivant": [
+        { "type": "souffle", "valeur": 2, "label": "Noircir 2 Souffles" },
+        { "type": "allieObjet", "label": "Un allié volontaire détruit son objet fétiche" }
+      ] } },
+    { "numero": 13, "titre": "L'Appât", "phase": "acte2",
+      "survivant": "Un appel à l'aide retentit au loin.<br><strong>Choix :</strong> tu y vas seul (noircis 2 Souffles), ou tu emmènes un allié volontaire avec toi (noircissez 1 Souffle chacun).",
+      "effets": { "survivant": [
+        { "type": "souffle", "valeur": 2, "label": "Y aller seul : noircir 2 Souffles" },
+        { "type": "allieSouffle", "valeur": 1, "label": "Avec un allié : 1 Souffle chacun" }
+      ] } },
+    { "numero": 14, "titre": "Le Verrou", "phase": "acte2",
+      "survivant": "Tu tentes de forcer une porte verrouillée.<br><strong>Choix :</strong> tu noircis 1 Souffle à cause de la difficulté, ou tu détruis ton objet fétiche en l'utilisant pour ouvrir.",
+      "effets": { "survivant": [
+        { "type": "souffle", "valeur": 1, "label": "Noircir 1 Souffle" },
+        { "type": "objet", "label": "Forcer avec mon objet fétiche (détruit)" }
+      ] } },
+    { "numero": 15, "titre": "La Contagion", "phase": "acte2",
+      "survivant": "Tu reçois une projection de liquide infect.<br><strong>Choix :</strong> tu noircis 2 Souffles, ou tu détruis ton objet fétiche pour te nettoyer.",
+      "effets": { "survivant": [
+        { "type": "souffle", "valeur": 2, "label": "Noircir 2 Souffles" },
+        { "type": "objet", "label": "Me nettoyer : détruire mon objet fétiche" }
+      ] } },
+    { "numero": 16, "titre": "Le Témoin", "phase": "acte2",
+      "survivant": "Tu vois la créature dévorer une proie. <strong>Décris la scène.</strong><br><strong>Choix :</strong> tu perds 1 Souffle, ou tu perds ton objet fétiche en t'enfuyant en courant.",
+      "effets": { "survivant": [
+        { "type": "souffle", "valeur": 1, "label": "Perdre 1 Souffle" },
+        { "type": "objet", "label": "Fuir : perdre mon objet fétiche" }
+      ] } },
+
+    { "numero": 17, "titre": "La Charge", "phase": "acte3",
+      "survivant": "La créature te fonce dessus à découvert.<br><strong>Choix :</strong> tu noircis 1 Souffle, ou tu détruis ton objet fétiche pour faire diversion.",
+      "spectre": "Tu surgis devant le reste du groupe. <strong>Décris comment tu leur barres la route</strong> pour qu'ils prennent l'assaut de plein fouet. Chacun des survivants noircit 1 Souffle.",
+      "effets": {
+        "survivant": [
+          { "type": "souffle", "valeur": 1, "label": "Noircir 1 Souffle" },
+          { "type": "objet", "label": "Diversion : détruire mon objet fétiche" }
+        ],
+        "spectre": [ { "type": "tous", "valeur": 1, "label": "Chaque survivant noircit 1 Souffle" } ]
+      } },
+    { "numero": 18, "titre": "L'Écrasement", "phase": "acte3",
+      "survivant": "Un pan de mur s'effondre sur toi. Tu noircis 1 Souffle pour t'extirper des gravats.<br><strong>Quel objet personnel as-tu vu disparaître à jamais sous les décombres ?</strong>",
+      "spectre": "Tu es responsable de l'éboulement. <strong>Décris comment tu t'y prends.</strong> Le survivant de ton choix noircit 1 Souffle.",
+      "effets": {
+        "survivant": [ { "type": "souffle", "valeur": 1, "label": "Noircir 1 Souffle" } ],
+        "spectre": [ { "type": "cible", "valeur": 1, "label": "Choisir le survivant qui noircit 1 Souffle" } ]
+      } },
+    { "numero": 19, "titre": "Le Mécanisme", "phase": "acte3",
+      "survivant": "Tu as les doigts sur le verrou de la sortie, mais tes mains tremblent trop.<br><strong>Quelle pensée ou quelle promesse te donne finalement la force d'agir ?</strong>",
+      "spectre": "Tu bloques la poignée de la porte.<br><strong>Quelle confession exiges-tu avant de lâcher prise, et pourquoi ?</strong>" },
+    { "numero": 20, "titre": "Le Balancier", "phase": "acte3",
+      "survivant": "La créature balaie la pièce avec rage.<br><strong>Choix :</strong> tu noircis 1 Souffle, ou tu détruis ton objet fétiche pour parer.",
+      "spectre": "Tu guides les griffes de la créature. <strong>Décris où elle frappe le survivant le plus affaibli</strong>, qui noircit 1 Souffle.",
+      "effets": {
+        "survivant": [
+          { "type": "souffle", "valeur": 1, "label": "Noircir 1 Souffle" },
+          { "type": "objet", "label": "Parer : détruire mon objet fétiche" }
+        ],
+        "spectre": [ { "type": "cible", "valeur": 1, "label": "Le survivant le plus affaibli noircit 1 Souffle" } ]
+      } },
+    { "numero": 21, "titre": "Le Face-à-face", "phase": "acte3",
+      "survivant": "Tu te retrouves coincé les yeux dans les yeux avec la créature.<br><strong>Décris ce que tu vois au fond de ses pupilles avant de ramper en arrière.</strong>",
+      "spectre": "La créature a revêtu tes traits pour tromper tes anciens alliés.<br><strong>Décris ce qu'ils voient à travers leurs yeux.</strong>" },
+    { "numero": 22, "titre": "L'Ultime Brèche", "phase": "acte3",
+      "survivant": "La dernière barricade cède. Tu noircis 1 Souffle en refermant brusquement la porte et en la bloquant de ton corps avant que la créature ne vous rattrape.",
+      "spectre": "Tu arraches la porte de ses gonds pour laisser le champ libre à la créature.<br><strong>Décris ce que les survivants voient alors qu'elle passe lentement par le passage ainsi libéré.</strong>",
+      "effets": {
+        "survivant": [ { "type": "souffle", "valeur": 1, "label": "Noircir 1 Souffle" } ]
+      } },
+
+    { "numero": 23, "titre": "Le Dévouement", "phase": "epilogue",
+      "survivant": "Pour ouvrir définitivement la sortie, un levier doit être maintenu abaissé depuis l'intérieur.<br><strong>Est-ce toi qui te dévoues pour rester enfermé, ou laisses-tu quelqu'un d'autre le faire ? Décris ton dernier geste.</strong>",
+      "spectre": "Tu as l'occasion de te racheter. C'est toi qui bloques le levier depuis l'au-delà pour que tes anciens camarades puissent enfin s'échapper.<br><strong>Décris cette force invisible qui les sauve.</strong>" },
+    { "numero": 24, "titre": "La Morsure cachée", "phase": "epilogue",
+      "survivant": "Tu as franchi la porte, mais tu sens une brûlure sous ta manche.<br><strong>Décris la marque ou la mutation que tu dissimules aux autres.</strong>",
+      "spectre": "Tu n'as pas survécu, mais tu as laissé une trace.<br><strong>Décris comment ta mémoire ou ton ombre s'immisce dans l'esprit de l'un des rescapés</strong>, qui en gardera une cicatrice psychologique invisible." },
+    { "numero": 25, "titre": "Le Dehors", "phase": "epilogue",
+      "survivant": "Tu débouches enfin à l'air libre.<br><strong>Décris ce que tu découvres : le monde extérieur est-il resté intact, ou le cauchemar a-t-il déjà gagné le reste du pays ?</strong>",
+      "spectre": "Tu n'es plus là pour le voir, mais tu décris la vision de ton esprit qui s'élève au-dessus du lieu :<br><strong>la bête s'arrête-t-elle à la frontière, ou le fléau s'apprête-t-il à déborder ?</strong>" },
+    { "numero": 26, "titre": "Les Cicatrices", "phase": "epilogue",
+      "survivant": "Six mois plus tard.<br><strong>Prononce ta phrase finale : ce que tu es devenu, et le bruit ordinaire qui te fait encore revivre l'horreur chaque nuit.</strong>",
+      "spectre": "Six mois plus tard.<br><strong>Décris comment tu hantes les lieux, ou sous quelle forme (un murmure, une ombre dans un coin) tu continues d'apparaître dans le quotidien de ceux qui ont survécu.</strong>",
+      "note5joueurs": "À 5 joueurs : le cinquième joueur intervient lui aussi sur cette carte." }
+  ],
+
+  "reglesNombreJoueurs": {
+    "3": { "retirer": [4, 24], "retirerUneParActe": ["acte1", "acte2", "acte3"] },
+    "4": {},
+    "5": { "amorceBis": true }
+  }
+}

@@ -1,0 +1,44 @@
+<section class="traque-feuille etat-{{system.etat}}">
+  <h1 class="traque-titre">Feuille de survie</h1>
+
+  <div class="traque-champ">
+    <label>Prénom</label>
+    <input type="text" name="name" value="{{actor.name}}" placeholder="Prénom" {{#unless editable}}disabled{{/unless}}>
+  </div>
+
+  <div class="traque-champ">
+    <label>Objet fétiche</label>
+    <div class="traque-objet {{#if system.objetDetruit}}detruit{{/if}}">
+      <input type="text" name="system.objetFetiche" value="{{system.objetFetiche}}" placeholder="Ce qui te raccroche à la vie…" {{#unless editable}}disabled{{/unless}}>
+      {{#if system.objetDetruit}}<span class="traque-tampon">Perdu</span>{{/if}}
+    </div>
+    <label class="traque-case">
+      <input type="checkbox" name="system.objetDetruit" {{#if system.objetDetruit}}checked{{/if}} {{#unless editable}}disabled{{/unless}}>
+      Objet détruit
+    </label>
+  </div>
+
+  <div class="traque-champ">
+    <label>Souffle</label>
+    <div class="traque-coches">
+      {{#each coches}}
+      <button type="button" class="traque-coche {{#if noircie}}noircie{{/if}}" data-action="noircir" data-index="{{index}}"
+        data-tooltip="{{#if noircie}}Effacer{{else}}Noircir{{/if}}" {{#unless ../editable}}disabled{{/unless}}></button>
+      {{/each}}
+    </div>
+    <p class="traque-aide">Clique sur un cercle pour le noircir. Les trois noircis : tu deviens un Spectre.</p>
+  </div>
+
+  <div class="traque-champ traque-etat">
+    <label>État</label>
+    <select name="system.etat" {{#unless editable}}disabled{{/unless}}>
+      {{selectOptions etats selected=system.etat}}
+    </select>
+  </div>
+
+  {{#if editable}}
+  <div class="traque-actions">
+    <button type="button" data-action="reinitialiser"><i class="fa-solid fa-rotate-left"></i> Réinitialiser</button>
+  </div>
+  {{/if}}
+</section>
