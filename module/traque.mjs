@@ -689,10 +689,16 @@ Hooks.on("renderGamePause", (app, html) => {
   const el = (html instanceof HTMLElement ? html : html?.[0]) ?? document.getElementById("pause");
   if (!el) return;
   el.classList.add("traque-pause");
+  el.classList.toggle("traque-masquee", !game.paused);
   el.innerHTML = `
     <div class="tq-pause-souffle" aria-hidden="true"><span></span><span></span><span></span></div>
     <figcaption>La traque est suspendue</figcaption>
     <p class="tq-pause-sous">Retenez votre souffle…</p>`;
+});
+
+/* Masque / affiche la bannière à chaque pause ou reprise (barre d'espace) */
+Hooks.on("pauseGame", (enPause) => {
+  document.getElementById("pause")?.classList.toggle("traque-masquee", !enPause);
 });
 
 Hooks.on("renderActorDirectory", (app, html) => {

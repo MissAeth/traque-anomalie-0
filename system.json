@@ -2,7 +2,7 @@
   "id": "traque-anomalie-0",
   "title": "Traque : Anomalie 0",
   "description": "Jeu de rôle horrifique en narration partagée pour 3 à 5 joueurs, sans dé ni MJ. Fiche de survie, pioche par actes, règle du SAS et Spectres.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "compatibility": {
     "minimum": "13",
     "verified": "14"
